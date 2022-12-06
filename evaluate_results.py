@@ -8,9 +8,10 @@ NUMBER_OF_SAMPLES = 164
 def calculate_correctness(path):
     # Read the csv file
     matrix = []
-    with open(path + "/results/results_old.csv", "r") as f:
+    with open(path + "/results/results.csv", "r") as f:
         csv_reader = reader(f)
         for row in csv_reader:
+            row = row[0].split(";")
             matrix.append(row)
     # Calculate the correctess
     correctness = 0
@@ -25,9 +26,10 @@ def calculate_correctness(path):
 def calculate_different_correctness_cases(path):
     # Read the csv file
     matrix = []
-    with open(path + "/results/results_old.csv", "r") as f:
+    with open(path + "/results/results.csv", "r") as f:
         csv_reader = reader(f)
         for row in csv_reader:
+            row = row[0].split(";")
             matrix.append(row)
 
     count_correct = 0
@@ -51,9 +53,10 @@ def calculate_different_correctness_cases(path):
 def calculate_correctness_by_percentage(path):
     # Read the csv file
     matrix = []
-    with open(path + "/results/results_old.csv", "r") as f:
+    with open(path + "/results/results.csv", "r") as f:
         csv_reader = reader(f)
         for row in csv_reader:
+            row = row[0].split(";")
             matrix.append(row)
 
     # Calculate the correctess
@@ -121,13 +124,14 @@ def read_all_exec_results(path):
 def count_invalid(path):
     # Read the csv file
     matrix = []
-    with open(path + "/results/results_old.csv", "r") as f:
+    with open(path + "/results/results.csv", "r") as f:
         csv_reader = reader(f)
         for row in csv_reader:
+            row = row[0].split(";")
             matrix.append(row)
     count = 0
     for i in range(1, NUMBER_OF_SAMPLES + 1):
-        if '0' in matrix[i][3]:
+        if '0' in matrix[i][1]:
             count += 1
     return count
 
